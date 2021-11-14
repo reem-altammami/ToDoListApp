@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/showTaskFragment">
+    app:startDestination="@id/addEditeFragment">
     <fragment
-        android:id="@+id/showTaskFragment"
-        android:name="com.example.todolistapp.ShowTaskFragment"
-        android:label="fragment_show_task"
-        tools:layout="@layout/fragment_show_task" />
+        android:id="@+id/addEditeFragment"
+        android:name="com.example.todolistapp.AddEditeFragment"
+        android:label="fragment_add_edite"
+        tools:layout="@layout/fragment_add_edite" />
 </navigation>
