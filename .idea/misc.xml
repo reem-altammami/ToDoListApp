@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/ToDoListApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/ToDoListApp/app/src/main/res/layout/fragment_add_edite.xml" value="0.1" />
         <entry key="..\:/ToDoListApp/app/src/main/res/layout/fragment_task_list.xml" value="0.1" />
         <entry key="..\:/ToDoListApp/app/src/main/res/layout/item_task_list.xml" value="0.22702702702702704" />
       </map>
