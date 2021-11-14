@@ -2,8 +2,10 @@
     <!-- Base application theme. -->
     <style name="Theme.ToDoListApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#7AA37B</item>
-        <item name="colorPrimaryVariant">#456046</item>
+
+        <item name="colorPrimary">#476F6B</item>
+        <item name="colorPrimaryVariant">#37514F</item>
+
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -12,5 +14,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
     </style>
+
 </resources>
