@@ -1,4 +1,4 @@
 package model
 
-class ToDo (val title: String, val description:String , val date :String, val isComplete:Boolean){
+data class ToDo (val title: String, val description:String , val dueDate :String,val creationDate:String, val isComplete:Boolean){
 }
