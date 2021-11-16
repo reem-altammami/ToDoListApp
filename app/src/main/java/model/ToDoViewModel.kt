@@ -6,6 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.todolistapp.allTask
 import data.DataSource
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ToDoViewModel : ViewModel() {
     private var _currentTaskPosition = MutableLiveData<Int>()
@@ -16,31 +18,25 @@ class ToDoViewModel : ViewModel() {
      val title = MutableLiveData<String>()
 
      val description = MutableLiveData<String>()
-//    val description: LiveData<String>
-//        get() = _description
+
 
     val dueDate = MutableLiveData<String>()
-//    val dueDate: LiveData<String>
-//        get() = _dueDate
+
 
     private val _creationDate = MutableLiveData<String>()
     val creationDate: LiveData<String>
         get() = _creationDate
 
+    private val _isNotPast = MutableLiveData<Boolean>()
+    val isNotPast: LiveData<Boolean>
+        get() = _isNotPast
+
      val isComplete = MutableLiveData<Boolean>()
-//    val isComplete: LiveData<Boolean>
-//        get() = _isComplete
-//    fun add() {
-//        var x = ToDo("mmm", "ggg", "", true)
-//        allTask.add(x)
-//        _taskToDo.add(ToDo("ff", "ggg", "", true))
-//
-//        allTask.addAll(_taskToDo)
-//        Log.d("Reem", "add: $allTask")
-//    }
+
 
     fun addTaskToList() {
-        var info=ToDo(title.value!!,description.value!!,dueDate.value!!,creationDate.value!!,isComplete.value!!)
+        isDateNotPast(dueDate.value!!)
+        var info=ToDo(title.value!!,description.value!!,dueDate.value!!,_creationDate.value!!,isComplete.value!!,_isNotPast.value!!)
         allTask.add(info)
     }
     fun getEmptyFields(){
@@ -49,7 +45,10 @@ class ToDoViewModel : ViewModel() {
         _creationDate.value = ""
         dueDate.value = ""
         isComplete.value = false
+        _isNotPast.value = false
     }
+
+
 
     fun displayInformation() {
         val item = allTask[_currentTaskPosition.value!!]
@@ -59,15 +58,41 @@ class ToDoViewModel : ViewModel() {
         dueDate.value = item.dueDate
         isComplete.value = item.isComplete
     }
+
+
+
     fun removeTask(){
         allTask.removeAt(_currentTaskPosition.value!!)
     }
+
+
+
     fun updatedTaskInfo(){
-        var info=ToDo(title.value!!,description.value!!,dueDate.value!!,creationDate.value!!,isComplete.value!!)
+        isDateNotPast(dueDate.value!!)
+        var info=ToDo(title.value!!,description.value!!,dueDate.value!!,creationDate.value!!,isComplete.value!!,_isNotPast.value!!)
 allTask[_currentTaskPosition.value!!] = info
     }
 
-//    fun maketComplete(isComp : Boolean){
-//        _isComplete.value = isComp
-//    }
+
+
+    fun formatDate(date : Long){
+        val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val selectedDate = date
+        dueDate.value =formatter.format(selectedDate).toString()
+        val calendar = Calendar.getInstance()
+        _creationDate.value = formatter.format(calendar.time)
+    }
+
+
+    fun isDateNotPast(taskDate: String)  {
+        try {
+            val todayDate = SimpleDateFormat("yyyy-MM-dd").parse(taskDate)
+
+            _isNotPast.value = !todayDate.before(Date())
+        } catch(ignored: java.text.ParseException) {
+            _isNotPast.value = false
+        }
+    }
+
+
 }

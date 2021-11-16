@@ -1,6 +1,7 @@
 package adapter
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,8 @@ class ToDoAdapter (val context: Context, val dataSet:List<ToDo>):RecyclerView.Ad
         val edit :ImageView = view.findViewById(R.id.edit_icon)
         val delete :ImageView = view.findViewById(R.id.delete_icon)
         val done :ImageView = view.findViewById(R.id.icon_done)
+        val isNotPast : TextView = view.findViewById(R.id.past_coming)
+
 
 
 
@@ -38,9 +41,14 @@ class ToDoAdapter (val context: Context, val dataSet:List<ToDo>):RecyclerView.Ad
         val item = dataSet[position]
         holder.toDoTitle.text = item.title
         holder.toDoDate.text = item.dueDate
+        if (item.isNotPast){
+            holder.isNotPast.setTextColor(Color.parseColor("#0C75A5"))
+            holder.isNotPast.text = "Coming"
+        }
         if (item.isComplete){
             holder.done.setImageResource(R.drawable.ic_check)
         }
+
         holder.card.setOnClickListener{
             val action = TaskListFragmentDirections.actionTaskListFragmentToShowTaskFragment(position)
             holder.card.findNavController().navigate(action)
@@ -58,4 +66,5 @@ class ToDoAdapter (val context: Context, val dataSet:List<ToDo>):RecyclerView.Ad
     }
 
     override fun getItemCount(): Int = dataSet.size
+
 }

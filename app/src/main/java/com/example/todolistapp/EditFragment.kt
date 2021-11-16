@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.todolistapp.databinding.FragmentAddTaskBinding
 import com.example.todolistapp.databinding.FragmentEditBinding
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import model.ToDo
 import model.ToDoViewModel
@@ -39,36 +40,15 @@ class EditFragment : Fragment() {
         binding.editFragment = this@EditFragment
 
     }
+
+
     fun updateTask() {
         sharedViewModel.updatedTaskInfo()
        findNavController().navigate(R.id.action_editFragment_to_taskListFragment)
 
     }
-//    fun editTask(){
-//
-//    }
-//
-//    fun setTitle(): String {
-//        val title = binding.textInputEditTitle.text.toString()
-//        return title
-//
-//    }
-//
-//    fun setDate(): String {
-//        val date = binding.textInputEditDate.text.toString()
-//        return date
-//
-//    }
-//
-//    fun setDescription(): String {
-//        val description = binding.textInputEditDescription.text.toString()
-//        return description
-//    }
-//
-//    fun setTaskInformation() {
-//        val info = ToDo(setTitle(), setDescription(), setDate(), setDate(), false)
-//        sharedViewModel.updatedTaskInfo(info)
-//    }
+
+
     fun showConfirmDeletionDialog(){
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(R.string.dialog_title))
@@ -81,8 +61,25 @@ class EditFragment : Fragment() {
             }
             .show()
     }
+
+
+
     fun deleteTask() {
         sharedViewModel.removeTask()
         findNavController().navigate(R.id.action_editFragment_to_taskListFragment)
+    }
+
+
+    fun dateDialog(){
+        val builder = MaterialDatePicker.Builder.datePicker()
+        val picker = builder.build()
+        picker.show(requireFragmentManager(), picker.toString())
+
+        picker.addOnNegativeButtonClickListener {
+        }
+        picker.addOnPositiveButtonClickListener {
+            sharedViewModel.formatDate(it)
+        }
+
     }
 }
