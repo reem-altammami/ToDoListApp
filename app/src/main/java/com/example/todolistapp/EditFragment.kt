@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.todolistapp.databinding.FragmentAddTaskBinding
 import com.example.todolistapp.databinding.FragmentEditBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import model.ToDo
 import model.ToDoViewModel
 
@@ -39,33 +40,49 @@ class EditFragment : Fragment() {
 
     }
     fun updateTask() {
-        setTaskInformation()
-       findNavController().navigate(R.id.action_addTaskFragment_to_taskListFragment)
+        sharedViewModel.updatedTaskInfo()
+       findNavController().navigate(R.id.action_editFragment_to_taskListFragment)
 
     }
-    fun editTask(){
-
+//    fun editTask(){
+//
+//    }
+//
+//    fun setTitle(): String {
+//        val title = binding.textInputEditTitle.text.toString()
+//        return title
+//
+//    }
+//
+//    fun setDate(): String {
+//        val date = binding.textInputEditDate.text.toString()
+//        return date
+//
+//    }
+//
+//    fun setDescription(): String {
+//        val description = binding.textInputEditDescription.text.toString()
+//        return description
+//    }
+//
+//    fun setTaskInformation() {
+//        val info = ToDo(setTitle(), setDescription(), setDate(), setDate(), false)
+//        sharedViewModel.updatedTaskInfo(info)
+//    }
+    fun showConfirmDeletionDialog(){
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(getString(R.string.dialog_title))
+            .setMessage(getString(R.string.dialog_message)).setCancelable(false)
+            .setNegativeButton(getString(R.string.confirm)){_,_ ->
+                deleteTask()
+            }
+            .setPositiveButton(getString(R.string.cancel)){_,_->
+                findNavController().navigate(R.id.action_editFragment_to_taskListFragment)
+            }
+            .show()
     }
-
-    fun setTitle(): String {
-        val title = binding.textInputEditTitle.text.toString()
-        return title
-
-    }
-
-    fun setDate(): String {
-        val date = binding.textInputEditDate.text.toString()
-        return date
-
-    }
-
-    fun setDescription(): String {
-        val description = binding.textInputEditDescription.text.toString()
-        return description
-    }
-
-    fun setTaskInformation() {
-        val info = ToDo(setTitle(), setDescription(), setDate(), setDate(), false)
-        sharedViewModel.addTaskToList(info)
+    fun deleteTask() {
+        sharedViewModel.removeTask()
+        findNavController().navigate(R.id.action_editFragment_to_taskListFragment)
     }
 }

@@ -35,6 +35,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="20dp">
+<Button
+    android:id="@+id/c"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/t"
+                        app:layout_constraintTop_toBottomOf="@id/c"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/fieldTitle"
@@ -52,7 +64,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:inputType="text"
-                            android:text="@{viewModel.title}"
+                            android:text="@={viewModel.title}"
                             android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,7 +84,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:inputType="date"
-                            android:text="@{viewModel.dueDate}"
+                            android:text="@={viewModel.dueDate}"
                             android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,7 +105,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:inputType="textMultiLine"
-                            android:text="@{viewModel.description}"
+                            android:text="@={viewModel.description}"
                             android:maxLines="8" />
                     </com.google.android.material.textfield.TextInputLayout>
 

@@ -51,6 +51,15 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_delete" />
 
+        <ImageView
+            android:id="@+id/icon_done"
+            android:layout_width="33dp"
+            android:layout_height="31dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

@@ -39,7 +39,8 @@
             app:destination="@id/editFragment" />
         <action
             android:id="@+id/action_showTaskFragment_to_taskListFragment"
-            app:destination="@id/taskListFragment" />
+            app:destination="@id/taskListFragment"
+            app:popUpTo="@id/taskListFragment" />
     </fragment>
     <fragment
         android:id="@+id/addTaskFragment"
@@ -47,7 +48,8 @@
         android:label="AddTaskFragment" >
         <action
             android:id="@+id/action_addTaskFragment_to_taskListFragment"
-            app:destination="@id/taskListFragment" />
+            app:destination="@id/taskListFragment"
+            app:popUpTo="@id/taskListFragment" />
         <argument
             android:name="itemPosition"
             app:argType="integer" />
@@ -58,7 +60,8 @@
         android:label="EditFragment" >
         <action
             android:id="@+id/action_editFragment_to_taskListFragment"
-            app:destination="@id/taskListFragment" />
+            app:destination="@id/taskListFragment"
+            app:popUpTo="@id/taskListFragment" />
         <argument
             android:name="itemPosition"
             app:argType="integer" />

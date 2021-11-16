@@ -23,6 +23,8 @@ class ToDoAdapter (val context: Context, val dataSet:List<ToDo>):RecyclerView.Ad
         val card : CardView = view.findViewById(R.id.item_card)
         val edit :ImageView = view.findViewById(R.id.edit_icon)
         val delete :ImageView = view.findViewById(R.id.delete_icon)
+        val done :ImageView = view.findViewById(R.id.icon_done)
+
 
 
     }
@@ -36,6 +38,9 @@ class ToDoAdapter (val context: Context, val dataSet:List<ToDo>):RecyclerView.Ad
         val item = dataSet[position]
         holder.toDoTitle.text = item.title
         holder.toDoDate.text = item.dueDate
+        if (item.isComplete){
+            holder.done.setImageResource(R.drawable.ic_check)
+        }
         holder.card.setOnClickListener{
             val action = TaskListFragmentDirections.actionTaskListFragmentToShowTaskFragment(position)
             holder.card.findNavController().navigate(action)

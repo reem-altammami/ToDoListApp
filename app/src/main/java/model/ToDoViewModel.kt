@@ -13,25 +13,23 @@ class ToDoViewModel : ViewModel() {
         get() = _currentTaskPosition
 
 
-    private val _title = MutableLiveData<String>()
-    val title: LiveData<String>
-        get() = _title
+     val title = MutableLiveData<String>()
 
-    private val _description = MutableLiveData<String>()
-    val description: LiveData<String>
-        get() = _description
+     val description = MutableLiveData<String>()
+//    val description: LiveData<String>
+//        get() = _description
 
-    private val _dueDate = MutableLiveData<String>()
-    val dueDate: LiveData<String>
-        get() = _dueDate
+    val dueDate = MutableLiveData<String>()
+//    val dueDate: LiveData<String>
+//        get() = _dueDate
 
     private val _creationDate = MutableLiveData<String>()
     val creationDate: LiveData<String>
         get() = _creationDate
 
-    private val _isComplete = MutableLiveData<Boolean>()
-    val isComplete: LiveData<Boolean>
-        get() = _isComplete
+     val isComplete = MutableLiveData<Boolean>()
+//    val isComplete: LiveData<Boolean>
+//        get() = _isComplete
 //    fun add() {
 //        var x = ToDo("mmm", "ggg", "", true)
 //        allTask.add(x)
@@ -41,23 +39,35 @@ class ToDoViewModel : ViewModel() {
 //        Log.d("Reem", "add: $allTask")
 //    }
 
-    fun addTaskToList(info: ToDo) {
+    fun addTaskToList() {
+        var info=ToDo(title.value!!,description.value!!,dueDate.value!!,creationDate.value!!,isComplete.value!!)
         allTask.add(info)
     }
     fun getEmptyFields(){
-        _title.value = ""
-        _description.value = ""
+        title.value = ""
+        description.value = ""
         _creationDate.value = ""
-        _dueDate.value = ""
-        _isComplete.value = false
+        dueDate.value = ""
+        isComplete.value = false
     }
 
     fun displayInformation() {
         val item = allTask[_currentTaskPosition.value!!]
-        _title.value = item.title
-        _description.value = item.description
+        title.value = item.title
+        description.value = item.description
         _creationDate.value = item.creationDate
-        _dueDate.value = item.dueDate
-        _isComplete.value = item.isComplete
+        dueDate.value = item.dueDate
+        isComplete.value = item.isComplete
     }
+    fun removeTask(){
+        allTask.removeAt(_currentTaskPosition.value!!)
+    }
+    fun updatedTaskInfo(){
+        var info=ToDo(title.value!!,description.value!!,dueDate.value!!,creationDate.value!!,isComplete.value!!)
+allTask[_currentTaskPosition.value!!] = info
+    }
+
+//    fun maketComplete(isComp : Boolean){
+//        _isComplete.value = isComp
+//    }
 }

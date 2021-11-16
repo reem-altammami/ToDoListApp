@@ -54,6 +54,7 @@ class TaskListFragment : Fragment() {
 //fun deleteTask(){
 //    allTask.removeAt()
 //}
+
     fun addNewTask(){
     findNavController().navigate(R.id.action_taskListFragment_to_addTaskFragment)
     sharedViewModel.getEmptyFields()

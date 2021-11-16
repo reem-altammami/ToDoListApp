@@ -46,6 +46,7 @@ class ShowTaskFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.showTaskFragment = this@ShowTaskFragment
         sharedViewModel.displayInformation()
+
     }
     fun editTask(){
         findNavController().navigate(R.id.action_showTaskFragment_to_editFragment)
@@ -53,9 +54,11 @@ class ShowTaskFragment : Fragment() {
 
     }
     fun deleteTask() {
-        allTask.removeAt(taskIndex)
+        sharedViewModel.removeTask()
+//        allTask.removeAt(taskIndex)
         findNavController().navigate(R.id.action_showTaskFragment_to_taskListFragment)
     }
+    //Dialog
     fun showConfirmDeletionDialog(){
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(R.string.dialog_title))
@@ -69,4 +72,13 @@ findNavController().navigate(R.id.action_showTaskFragment_to_taskListFragment)
             .show()
     }
 
+
+    fun checkComplete() {
+
+//        if (binding.complete.isChecked)
+//        sharedViewModel.maketComplete(true)
+//        else
+//            sharedViewModel.maketComplete(false)
+//    }
+    }
 }

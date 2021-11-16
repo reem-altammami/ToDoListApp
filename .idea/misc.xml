@@ -9,13 +9,14 @@
         <entry key="..\:/ToDoListApp/app/src/main/res/layout/fragment_task_list.xml" value="0.1" />
         <entry key="..\:/ToDoListApp/app/src/main/res/layout/item_task_list.xml" value="0.22702702702702704" />
         <entry key="..\:/ToDoListApp/app/src/main/res/layout/item_todo_list.xml" value="0.1" />
+        <entry key="..\:/ToDoListApp__/app/src/main/res/drawable/ic_check.xml" value="0.17777777777777778" />
         <entry key="..\:/ToDoListApp__/app/src/main/res/layout/activity_main.xml" value="0.17889492753623187" />
         <entry key="..\:/ToDoListApp__/app/src/main/res/layout/fragment_add_edite.xml" value="0.17889492753623187" />
-        <entry key="..\:/ToDoListApp__/app/src/main/res/layout/fragment_add_task.xml" value="0.17889492753623187" />
-        <entry key="..\:/ToDoListApp__/app/src/main/res/layout/fragment_edit.xml" value="0.115625" />
+        <entry key="..\:/ToDoListApp__/app/src/main/res/layout/fragment_add_task.xml" value="0.1" />
+        <entry key="..\:/ToDoListApp__/app/src/main/res/layout/fragment_edit.xml" value="0.10285714285714286" />
         <entry key="..\:/ToDoListApp__/app/src/main/res/layout/fragment_show_task.xml" value="0.12571428571428572" />
         <entry key="..\:/ToDoListApp__/app/src/main/res/layout/fragment_task_list.xml" value="0.42857142857142855" />
-        <entry key="..\:/ToDoListApp__/app/src/main/res/layout/item_todo_list.xml" value="0.17889492753623187" />
+        <entry key="..\:/ToDoListApp__/app/src/main/res/layout/item_todo_list.xml" value="0.5759280089988752" />
       </map>
     </option>
   </component>

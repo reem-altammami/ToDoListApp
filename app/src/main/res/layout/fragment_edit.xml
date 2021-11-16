@@ -52,7 +52,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:inputType="text"
-                            android:text="@{viewModel.title}"
+                            android:text="@={viewModel.title}"
                             android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,7 +72,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:inputType="date"
-                            android:text="@{viewModel.dueDate}"
+                            android:text="@={viewModel.dueDate}"
                             android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,10 +93,20 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:inputType="textMultiLine"
-                            android:text="@{viewModel.description}"
+                            android:text="@={viewModel.description}"
                             android:maxLines="8" />
                     </com.google.android.material.textfield.TextInputLayout>
-
+                    <CheckBox
+                        android:id="@+id/complete"
+                        android:text="Task Is Done"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:textSize="20dp"
+                        android:checked="@={viewModel.isComplete}"
+                        android:textAlignment="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/fieldDescription"
+                        android:layout_marginBottom="30dp" />
                     <Button
                         android:id="@+id/done"
                         android:text="Edit"
@@ -107,6 +117,14 @@
                         android:onClick="@{()->editFragment.updateTask() }"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="60dp" />
+                    <ImageView
+                        android:id="@+id/delete_icon"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:onClick="@{()-> editFragment.showConfirmDeletionDialog()}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_delete" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
