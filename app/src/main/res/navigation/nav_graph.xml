@@ -9,10 +9,19 @@
         android:name="com.example.todolistapp.TaskListFragment"
         android:label="TaskListFragment" >
         <action
-            android:id="@+id/action_taskListFragment_to_addFragment"
-            app:destination="@id/addFragment" />
-        <action
             android:id="@+id/action_taskListFragment_to_showTaskFragment"
+            app:destination="@id/showTaskFragment" />
+        <action
+            android:id="@+id/action_taskListFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
+        <action
+            android:id="@+id/action_taskListFragment_to_editFragment"
+            app:destination="@id/editFragment" />
+        <action
+            android:id="@+id/action_taskListFragment_to_showTaskFragment2"
+            app:destination="@id/showTaskFragment" />
+        <action
+            android:id="@+id/action_taskListFragment_to_showTaskFragment3"
             app:destination="@id/showTaskFragment" />
     </fragment>
     <fragment
@@ -22,9 +31,36 @@
         <argument
             android:name="itemPosition"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_showTaskFragment_to_editFragment"
+            app:destination="@id/editFragment" />
+        <action
+            android:id="@+id/action_showTaskFragment_to_editFragment2"
+            app:destination="@id/editFragment" />
+        <action
+            android:id="@+id/action_showTaskFragment_to_taskListFragment"
+            app:destination="@id/taskListFragment" />
     </fragment>
     <fragment
-        android:id="@+id/addFragment"
-        android:name="com.example.todolistapp.AddFragment"
-        android:label="AddFragment" />
+        android:id="@+id/addTaskFragment"
+        android:name="com.example.todolistapp.AddTaskFragment"
+        android:label="AddTaskFragment" >
+        <action
+            android:id="@+id/action_addTaskFragment_to_taskListFragment"
+            app:destination="@id/taskListFragment" />
+        <argument
+            android:name="itemPosition"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.example.todolistapp.EditFragment"
+        android:label="EditFragment" >
+        <action
+            android:id="@+id/action_editFragment_to_taskListFragment"
+            app:destination="@id/taskListFragment" />
+        <argument
+            android:name="itemPosition"
+            app:argType="integer" />
+    </fragment>
 </navigation>

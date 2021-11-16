@@ -8,11 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.todolistapp.databinding.FragmentAddTaskBinding
+import com.example.todolistapp.databinding.FragmentEditBinding
 import model.ToDo
 import model.ToDoViewModel
 
-class AddTaskFragment : Fragment() {
-    private var _binding: FragmentAddTaskBinding? = null
+
+class EditFragment : Fragment() {
+    private var _binding: FragmentEditBinding? = null
     private val binding get() = _binding!!
     private val sharedViewModel: ToDoViewModel by activityViewModels()
 
@@ -26,17 +28,17 @@ class AddTaskFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentAddTaskBinding.inflate(inflater, container, false)
+        _binding = FragmentEditBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.viewModel = sharedViewModel
         binding.lifecycleOwner = viewLifecycleOwner
-        binding.addTaskFragment = this@AddTaskFragment
+        binding.editFragment = this@EditFragment
 
     }
-    fun saveNewTask() {
+    fun updateTask() {
         setTaskInformation()
        findNavController().navigate(R.id.action_addTaskFragment_to_taskListFragment)
 

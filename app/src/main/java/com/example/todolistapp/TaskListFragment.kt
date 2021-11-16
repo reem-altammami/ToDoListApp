@@ -41,17 +41,22 @@ class TaskListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        sharedViewModel.add()
-        binding.viewModel = sharedViewModel
-        binding.lifecycleOwner = viewLifecycleOwner
-        binding.listTaskFragment = this@TaskListFragment
         recyclerView = binding.recyclerView
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = ToDoAdapter(this.requireContext(), data)
+        binding.viewModel = sharedViewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.listTaskFragment = this@TaskListFragment
+
+
 
     }
+//fun deleteTask(){
+//    allTask.removeAt()
+//}
     fun addNewTask(){
-        findNavController().navigate(R.id.action_taskListFragment_to_addFragment)
-        sharedViewModel.getEmptyFields()
+    findNavController().navigate(R.id.action_taskListFragment_to_addTaskFragment)
+    sharedViewModel.getEmptyFields()
     }
 
 }

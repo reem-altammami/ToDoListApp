@@ -2,4 +2,10 @@
     <string name="app_name">To Do List App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dialog_title">Delete Task</string>
+    <string name="dialog_message">Are you sure to delete this task?</string>
+    <string name="confirm">Delete</string>
+    <string name="cancel">Cancel</string>
+
+
 </resources>

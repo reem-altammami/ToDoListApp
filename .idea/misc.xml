@@ -12,8 +12,9 @@
         <entry key="..\:/ToDoListApp__/app/src/main/res/layout/activity_main.xml" value="0.17889492753623187" />
         <entry key="..\:/ToDoListApp__/app/src/main/res/layout/fragment_add_edite.xml" value="0.17889492753623187" />
         <entry key="..\:/ToDoListApp__/app/src/main/res/layout/fragment_add_task.xml" value="0.17889492753623187" />
-        <entry key="..\:/ToDoListApp__/app/src/main/res/layout/fragment_show_task.xml" value="0.17889492753623187" />
-        <entry key="..\:/ToDoListApp__/app/src/main/res/layout/fragment_task_list.xml" value="0.17889492753623187" />
+        <entry key="..\:/ToDoListApp__/app/src/main/res/layout/fragment_edit.xml" value="0.115625" />
+        <entry key="..\:/ToDoListApp__/app/src/main/res/layout/fragment_show_task.xml" value="0.12571428571428572" />
+        <entry key="..\:/ToDoListApp__/app/src/main/res/layout/fragment_task_list.xml" value="0.42857142857142855" />
         <entry key="..\:/ToDoListApp__/app/src/main/res/layout/item_todo_list.xml" value="0.17889492753623187" />
       </map>
     </option>
