@@ -19,10 +19,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="1"
+            android:textColor="@color/textBlack"
             android:layout_marginTop="5dp"
             android:layout_marginStart="15dp"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-            app:layout_constraintStart_toEndOf="@id/delete_icon"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Title" />
 
@@ -31,32 +32,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:textColor="@color/textBlack"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
             app:layout_constraintStart_toStartOf="@id/task_title"
             app:layout_constraintTop_toBottomOf="@id/task_title"
             tools:text="Date" />
 
         <ImageView
             android:id="@+id/edit_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_edit" />
-        <ImageView
-            android:id="@+id/delete_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_delete" />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/delete_icon"-->
+<!--            android:layout_width="20dp"-->
+<!--            android:layout_height="20dp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:srcCompat="@drawable/ic_delete" />-->
 
         <ImageView
             android:id="@+id/icon_done"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginEnd="55dp"
+            android:layout_marginEnd="50dp"
             android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -64,12 +68,12 @@
             android:id="@+id/past_coming"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Past"
+            android:text="@string/past"
             android:textColor="#C6342A"
-            app:layout_constraintEnd_toEndOf="@id/icon_done"
-            app:layout_constraintTop_toBottomOf="@id/icon_done"
-            app:layout_constraintStart_toStartOf="@id/icon_done"/>
+            android:layout_marginStart="25dp"
+            app:layout_constraintStart_toEndOf="@id/task_date"
+            app:layout_constraintTop_toTopOf="@id/task_date"
+            app:layout_constraintBottom_toBottomOf="@id/task_date"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

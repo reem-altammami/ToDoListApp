@@ -8,7 +8,13 @@
     <string name="cancel">Cancel</string>
     <string name="due_date">Due Date : %s</string>
     <string name="creation_date">Creation Date : %s</string>
-
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="add">ADD</string>
+    <string name="past">Past</string>
+    <string name="task_is_done">Task Is Done</string>
+    <string name="edit">Edit</string>
+    <string name="coming">Coming</string>
 
 
 </resources>

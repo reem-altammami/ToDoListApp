@@ -35,12 +35,11 @@ class AddTaskFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.viewModel = sharedViewModel
-        binding.lifecycleOwner = viewLifecycleOwner
-        binding.addTaskFragment = this@AddTaskFragment
-
-
-
+        binding?.apply {
+            viewModel = sharedViewModel
+            lifecycleOwner = viewLifecycleOwner
+           addTaskFragment = this@AddTaskFragment
+        }
 
     }
 
@@ -62,49 +61,10 @@ class AddTaskFragment : Fragment() {
         }
 
     }
-//    fun formatDate(date : Long){
-//        val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-//        val selectedDate = date
-//        val dauDate =formatter.format(selectedDate)
-//        binding.o.text = isDateNotPast(dauDate).toString()
-//        val calendar = Calendar.getInstance()
-//        val x = formatter.format(calendar.time)
-//        binding.t.text=dauDate
-//        binding.c.text = x
 
 
-
-
-//    }
-//    fun isDateNotPast(taskDate: String) : Boolean {
-//        try {
-//            val todayDate = SimpleDateFormat("yyyy-MM-dd").parse(taskDate)
-//
-//            return !todayDate.before(Date())
-//        } catch(ignored: java.text.ParseException) {
-//            return false
-//        }
-//    }
 }
 
 
 
-//    fun editTask(){
-//
-//    }
-//
-//    fun setDate(): String {
-//        val date = binding.textInputEditDate.text.toString()
-//        return date
-//
-//    }
-//
-//    fun setDescription(): String {
-//        val description = binding.textInputEditDescription.text.toString()
-//        return description
-//    }
 
-//    fun setTaskInformation() {
-////        val info = ToDo(setDescription(), setDate(), setDate(), false)
-//        sharedViewModel.addTaskToList()
-//    }

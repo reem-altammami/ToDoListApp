@@ -1,5 +1,6 @@
 package com.example.todolistapp
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -39,46 +40,60 @@ class ShowTaskFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        val item = allTask[taskIndex]
-//        binding.textTitle.text = item.title
+        binding.apply {
+            viewModel = sharedViewModel
+            lifecycleOwner = viewLifecycleOwner
+            showTaskFragment = this@ShowTaskFragment
+        }
         sharedViewModel.currentTaskPosition.value = taskIndex
-        binding.viewModel = sharedViewModel
-        binding.lifecycleOwner = viewLifecycleOwner
-        binding.showTaskFragment = this@ShowTaskFragment
-        sharedViewModel.displayInformation()
 
+
+        showIfCoplete()
+        showIsNotPast()
+        sharedViewModel.displayInformation()
     }
-    fun editTask(){
+
+    fun editTask() {
         findNavController().navigate(R.id.action_showTaskFragment_to_editFragment)
         sharedViewModel.displayInformation()
 
     }
+
     fun deleteTask() {
         sharedViewModel.removeTask()
-//        allTask.removeAt(taskIndex)
         findNavController().navigate(R.id.action_showTaskFragment_to_taskListFragment)
     }
+
     //Dialog
-    fun showConfirmDeletionDialog(){
+    fun showConfirmDeletionDialog() {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(R.string.dialog_title))
             .setMessage(getString(R.string.dialog_message)).setCancelable(false)
-            .setNegativeButton(getString(R.string.confirm)){_,_ ->
+            .setNegativeButton(getString(R.string.confirm)) { _, _ ->
                 deleteTask()
             }
-            .setPositiveButton(getString(R.string.cancel)){_,_->
-findNavController().navigate(R.id.action_showTaskFragment_to_taskListFragment)
+            .setPositiveButton(getString(R.string.cancel)) { _, _ ->
+                findNavController().navigate(R.id.action_showTaskFragment_to_taskListFragment)
             }
             .show()
     }
 
-
-    fun checkComplete() {
-
-//        if (binding.complete.isChecked)
-//        sharedViewModel.maketComplete(true)
-//        else
-//            sharedViewModel.maketComplete(false)
-//    }
+    fun showIfCoplete() {
+        sharedViewModel.isComplete.observe(viewLifecycleOwner, {
+            if (it) {
+                binding.iconDone.setImageResource(R.drawable.ic_check)
+            }
+        })
     }
+
+    fun showIsNotPast() {
+        sharedViewModel.isNotPast.observe(viewLifecycleOwner, {
+
+            if (it) {
+                binding.pastComing.setTextColor(Color.parseColor("#0C75A5"))
+                binding.pastComing.text = getString(R.string.coming)
+            }
+        })
+    }
+
 }

@@ -19,7 +19,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:background="@color/white"
             tools:context=".AddTaskFragment">
 
             <androidx.cardview.widget.CardView
@@ -39,7 +38,9 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/fieldTitle"
                         android:layout_width="250dp"
-                        android:hint="Title"
+                        android:hint="@string/title"
+                        android:textColor="@color/textBlack"
+                        app:boxStrokeColor="@color/textBlack"
                         android:layout_height="wrap_content"
                         app:helperTextTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                         app:layout_constraintTop_toTopOf="parent"
@@ -49,6 +50,7 @@
                             android:id="@+id/text_input_edit_title"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:textColor="#1B1B1B"
                             android:inputType="text"
                             android:text="@={viewModel.title}"
                             android:maxLines="1" />
@@ -58,16 +60,18 @@
                         android:id="@+id/calender"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="20dp"
                         android:onClick="@{()-> addTaskFragment.dateDialog()}"
                         app:layout_constraintStart_toStartOf="@id/fieldTitle"
                         app:layout_constraintTop_toBottomOf="@id/fieldTitle"
                         app:srcCompat="@drawable/ic_calendar" />
                     <TextView
                         android:id="@+id/task_date"
+                        app:layout_constraintTop_toTopOf="@id/calender"
+                        app:layout_constraintBottom_toBottomOf="@id/calender"
                         app:layout_constraintStart_toEndOf="@id/calender"
-                        app:layout_constraintTop_toBottomOf="@id/fieldTitle"
                         android:layout_marginTop="10dp"
+                        android:textColor="@color/textBlack"
                         android:layout_marginStart="5dp"
                         android:text="@{@string/due_date(viewModel.dueDate)}"
                         android:layout_width="wrap_content"
@@ -78,7 +82,8 @@
                         android:id="@+id/fieldDescription"
                         android:layout_width="0dp"
                         android:layout_height="200dp"
-                        android:hint="Description"
+                        android:hint="@string/description"
+                        app:boxStrokeColor="@color/textBlack"
                         app:helperTextTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                         app:layout_constraintTop_toBottomOf="@id/calender"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -91,13 +96,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:inputType="textMultiLine"
+                            android:textColor="@color/textBlack"
                             android:text="@={viewModel.description}"
                             android:maxLines="8" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <Button
                         android:id="@+id/done"
-                        android:text="ADD"
+                        android:text="@string/add"
                         android:onClick="@{()-> addTaskFragment.saveNewTask()}"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"

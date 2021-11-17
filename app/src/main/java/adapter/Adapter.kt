@@ -23,12 +23,8 @@ class ToDoAdapter (val context: Context, val dataSet:List<ToDo>):RecyclerView.Ad
         val toDoDate: TextView = view.findViewById(R.id.task_date)
         val card : CardView = view.findViewById(R.id.item_card)
         val edit :ImageView = view.findViewById(R.id.edit_icon)
-        val delete :ImageView = view.findViewById(R.id.delete_icon)
         val done :ImageView = view.findViewById(R.id.icon_done)
         val isNotPast : TextView = view.findViewById(R.id.past_coming)
-
-
-
 
     }
 
@@ -59,10 +55,10 @@ class ToDoAdapter (val context: Context, val dataSet:List<ToDo>):RecyclerView.Ad
             val action = TaskListFragmentDirections.actionTaskListFragmentToEditFragment(position)
             holder.edit.findNavController().navigate(action)
         }
-        holder.delete.setOnClickListener {
-            val action = TaskListFragmentDirections.actionTaskListFragmentToEditFragment(position)
-            holder.delete.findNavController().navigate(action)
-        }
+//        holder.delete.setOnClickListener {
+//            val action = TaskListFragmentDirections.actionTaskListFragmentToEditFragment(position)
+//            holder.delete.findNavController().navigate(action)
+//        }
     }
 
     override fun getItemCount(): Int = dataSet.size
