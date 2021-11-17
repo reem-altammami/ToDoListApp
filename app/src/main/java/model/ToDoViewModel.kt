@@ -27,22 +27,22 @@ class ToDoViewModel : ViewModel() {
     val creationDate: LiveData<String>
         get() = _creationDate
 
-    private val _isNotPast = MutableLiveData<Boolean>(true)
-    val isNotPast: LiveData<Boolean>
-        get() = _isNotPast
+    private val _isPast = MutableLiveData<Boolean>(true)
+    val isPast: LiveData<Boolean>
+        get() = _isPast
 
     val isComplete = MutableLiveData<Boolean>()
 
 
     fun addTaskToList() {
-        isDateNotPast(dueDate.value!!)
+        isDatePast(dueDate.value!!)
         var info = ToDo(
             title.value!!,
             description.value!!,
             dueDate.value!!,
             _creationDate.value!!,
             isComplete.value!!,
-            _isNotPast.value!!
+            _isPast.value!!
         )
         allTask.add(info)
     }
@@ -53,7 +53,7 @@ class ToDoViewModel : ViewModel() {
         _creationDate.value = ""
         dueDate.value = ""
         isComplete.value = false
-        _isNotPast.value = false
+        _isPast.value = false
     }
 
 
@@ -64,7 +64,7 @@ class ToDoViewModel : ViewModel() {
         _creationDate.value = item.creationDate
         dueDate.value = item.dueDate
         isComplete.value = item.isComplete
-        isDateNotPast(item.dueDate)
+        isDatePast(item.dueDate)
     }
     fun displayInformation(pos:Int) {
         val item = allTask[pos]
@@ -73,7 +73,7 @@ class ToDoViewModel : ViewModel() {
         _creationDate.value = item.creationDate
         dueDate.value = item.dueDate
         isComplete.value = item.isComplete
-        isDateNotPast(item.dueDate)
+        isDatePast(item.dueDate)
     }
 
 
@@ -83,14 +83,14 @@ class ToDoViewModel : ViewModel() {
 
 
     fun updatedTaskInfo() {
-        isDateNotPast(dueDate.value!!)
+        isDatePast(dueDate.value!!)
         var info = ToDo(
             title.value!!,
             description.value!!,
             dueDate.value!!,
             creationDate.value!!,
             isComplete.value!!,
-            _isNotPast.value!!
+            _isPast.value!!
         )
         allTask[_currentTaskPosition.value!!] = info
     }
@@ -104,14 +104,23 @@ class ToDoViewModel : ViewModel() {
         _creationDate.value = formatter.format(calendar.time)
     }
 
-
-    fun isDateNotPast(taskDate: String) {
+//
+//    fun isDateNotPast(taskDate: String) {
+//        try {
+//            val taskDueDate = SimpleDateFormat("yyyy-MM-dd").parse(taskDate)
+//
+//            _isNotPast.value = !(taskDueDate.before(Date()))
+//        } catch (ignored: java.text.ParseException) {
+//            _isNotPast.value = false
+//        }
+//    }
+    fun isDatePast(taskDate: String) {
         try {
             val taskDueDate = SimpleDateFormat("yyyy-MM-dd").parse(taskDate)
 
-            _isNotPast.value = !(taskDueDate.before(Date()))
+            _isPast.value = (taskDueDate.before(Date()))
         } catch (ignored: java.text.ParseException) {
-            _isNotPast.value = false
+            _isPast.value = false
         }
     }
 

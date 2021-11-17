@@ -59,11 +59,11 @@ class EditFragment : Fragment() {
     }
 
     fun showIsNotPast() {
-        sharedViewModel.isNotPast.observe(viewLifecycleOwner, {
+        sharedViewModel.isPast.observe(viewLifecycleOwner, {
 
             if (it) {
-                binding.pastComing.setTextColor(Color.parseColor("#0C75A5"))
-                binding.pastComing.text = getString(R.string.coming)
+                binding.pastComing.setTextColor(Color.parseColor("#E6392D"))
+                binding.pastComing.text = getString(R.string.past)
             }
         })
     }
