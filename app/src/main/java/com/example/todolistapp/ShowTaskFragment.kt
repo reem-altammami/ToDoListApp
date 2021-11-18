@@ -2,6 +2,7 @@ package com.example.todolistapp
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -55,8 +56,8 @@ class ShowTaskFragment : Fragment() {
 
 // when user click on the EDIT ICON, navigate to edit fragment and call function to display his task details
     fun editTask() {
-
-        findNavController().navigate(R.id.action_showTaskFragment_to_editFragment)
+    val action = ShowTaskFragmentDirections.actionShowTaskFragmentToEditFragment(taskIndex)
+    findNavController().navigate(action)
         sharedViewModel.displayInformation()
 
     }

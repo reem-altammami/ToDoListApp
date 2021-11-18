@@ -3,6 +3,7 @@ package com.example.todolistapp
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,7 +23,7 @@ class EditFragment : Fragment() {
     private var _binding: FragmentEditBinding? = null
     private val binding get() = _binding!!
     private val sharedViewModel: ToDoViewModel by activityViewModels()
-
+    var pos:Int=1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,12 +46,16 @@ class EditFragment : Fragment() {
             editFragment = this@EditFragment
         }
 
-        var pos = 0
+
         arguments?.let {
             pos = it?.getInt("itemPos")
         }
-        sharedViewModel.displayInformation()
-//        sharedViewModel.displayInformation(pos)
+
+//        sharedViewModel.displayInformation()
+
+        Log.e("TAG", "pos ${pos}  currentTaskPosition= ${sharedViewModel.currentTaskPosition.value}")
+        sharedViewModel.displayInformation(pos)
+        Log.e("TAG", "pos ${pos}  currentTaskPosition= ${sharedViewModel.currentTaskPosition.value}")
         showIfComplete()
         showIsPast()
 

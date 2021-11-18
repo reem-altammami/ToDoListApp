@@ -58,6 +58,7 @@ class ToDoViewModel : ViewModel() {
 
 // this function calling to show details for specific Task based on the index in List
     fun displayInformation() {
+
         val item = allTask[_currentTaskPosition.value!!]
         title.value = item.title
         description.value = item.description
@@ -67,6 +68,7 @@ class ToDoViewModel : ViewModel() {
         isDatePast(item.dueDate)
     }
     fun displayInformation(pos:Int) {
+
         val item = allTask[pos]
         title.value = item.title
         description.value = item.description
@@ -79,6 +81,7 @@ class ToDoViewModel : ViewModel() {
 // remove task based on specific index
     fun removeTask() {
         allTask.removeAt(_currentTaskPosition.value!!)
+
     }
 
 // update the task details in list
@@ -121,6 +124,8 @@ class ToDoViewModel : ViewModel() {
             _isPast.value = false
         }
     }
+
+
 
 
 }
