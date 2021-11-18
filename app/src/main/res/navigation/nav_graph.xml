@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/taskListFragment"
         android:name="com.example.todolistapp.TaskListFragment"
-        android:label="My Tasks" >
+        android:label="@string/my_task" >
         <action
             android:id="@+id/action_taskListFragment_to_showTaskFragment"
             app:destination="@id/showTaskFragment" />
@@ -27,7 +27,7 @@
     <fragment
         android:id="@+id/showTaskFragment"
         android:name="com.example.todolistapp.ShowTaskFragment"
-        android:label="Task Details" >
+        android:label="@string/task_details" >
         <argument
             android:name="itemPosition"
             app:argType="integer" />
@@ -45,7 +45,7 @@
     <fragment
         android:id="@+id/addTaskFragment"
         android:name="com.example.todolistapp.AddTaskFragment"
-        android:label="Add New Task" >
+        android:label="@string/add_new_task" >
         <action
             android:id="@+id/action_addTaskFragment_to_taskListFragment"
             app:destination="@id/taskListFragment"
@@ -57,7 +57,7 @@
     <fragment
         android:id="@+id/editFragment"
         android:name="com.example.todolistapp.EditFragment"
-        android:label="Edit Task" >
+        android:label="@string/edit_task" >
         <action
             android:id="@+id/action_editFragment_to_taskListFragment"
             app:destination="@id/taskListFragment"
