@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">To Do List App</string>
+    <string name="dialog_title">حذف المهمة</string>
+    <string name="dialog_message">هل أنت متأكد من رغبتك في حذف هذه المهمة؟</string>
+    <string name="confirm">حذف</string>
+    <string name="cancel">إلغاء</string>
+    <string name="due_date">تاريخ إنهاء المهمة</string>
+    <string name="creation_date">تاريخ الإنشاء</string>
+    <string name="title">العنوان</string>
+    <string name="description">الوصف</string>
+    <string name="add">إضافة</string>
+    <string name="past">مضت</string>
+    <string name="task_is_done">تم إنجاز المهمة؟</string>
+    <string name="edit">تعديل</string>
+    <string name="coming">قادمة</string>
+    <string name="add_new_task">إضافة مهمة جديدة</string>
+    <string name="my_task">مهامي</string>
+    <string name="task_details">تفاصيل المهمة</string>
+    <string name="edit_task">تعديل المهمة</string>
+</resources>
