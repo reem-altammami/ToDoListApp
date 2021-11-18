@@ -57,7 +57,7 @@ class EditFragment : Fragment() {
 
 
     }
-
+// if date of task past change text
     fun showIsPast() {
         sharedViewModel.isPast.observe(viewLifecycleOwner, {
 

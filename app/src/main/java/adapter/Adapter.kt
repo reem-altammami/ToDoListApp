@@ -41,7 +41,7 @@ class ToDoAdapter (val context: Context, val dataSet:List<ToDo>):RecyclerView.Ad
         holder.toDoDate.text = item.dueDate
         if (item.isPast){
             holder.isPast.setTextColor(Color.parseColor("#C6342A"))
-            holder.isPast.text = "Past"
+            holder.isPast.text = context.getString(R.string.past)
         }
         if (item.isComplete){
             holder.done.setImageResource(R.drawable.ic_check)
