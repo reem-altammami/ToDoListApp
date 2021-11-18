@@ -33,7 +33,7 @@ class ToDoViewModel : ViewModel() {
 
     val isComplete = MutableLiveData<Boolean>()
 
-
+// this function will calling from AddTaskFragment to add new Task to List
     fun addTaskToList() {
         isDatePast(dueDate.value!!)
         var info = ToDo(
@@ -46,7 +46,7 @@ class ToDoViewModel : ViewModel() {
         )
         allTask.add(info)
     }
-
+// this function calling to get empty fields for adding new Task
     fun getEmptyFields() {
         title.value = ""
         description.value = ""
@@ -56,7 +56,7 @@ class ToDoViewModel : ViewModel() {
         _isPast.value = false
     }
 
-
+// this function calling to show details for specific Task based on the index in List
     fun displayInformation() {
         val item = allTask[_currentTaskPosition.value!!]
         title.value = item.title
@@ -76,12 +76,12 @@ class ToDoViewModel : ViewModel() {
         isDatePast(item.dueDate)
     }
 
-
+// remove task based on specific index
     fun removeTask() {
         allTask.removeAt(_currentTaskPosition.value!!)
     }
 
-
+// update the task details in list
     fun updatedTaskInfo() {
         isDatePast(dueDate.value!!)
         var info = ToDo(
@@ -95,7 +95,7 @@ class ToDoViewModel : ViewModel() {
         allTask[_currentTaskPosition.value!!] = info
     }
 
-
+// this function take date with type of long then convert it to String based date pattern
     fun formatDate(date: Long) {
         val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val selectedDate = date
@@ -104,16 +104,8 @@ class ToDoViewModel : ViewModel() {
         _creationDate.value = formatter.format(calendar.time)
     }
 
-//
-//    fun isDateNotPast(taskDate: String) {
-//        try {
-//            val taskDueDate = SimpleDateFormat("yyyy-MM-dd").parse(taskDate)
-//
-//            _isNotPast.value = !(taskDueDate.before(Date()))
-//        } catch (ignored: java.text.ParseException) {
-//            _isNotPast.value = false
-//        }
-//    }
+
+    // this function check if date of dask past or not based on current date
     fun isDatePast(taskDate: String) {
         try {
             val taskDueDate = SimpleDateFormat("yyyy-MM-dd").parse(taskDate)

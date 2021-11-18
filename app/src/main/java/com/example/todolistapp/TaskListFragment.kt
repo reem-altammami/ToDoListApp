@@ -28,6 +28,7 @@ class TaskListFragment : Fragment() {
 
         data = DataSource().loadData()
 
+
     }
 
     override fun onCreateView(
@@ -41,6 +42,8 @@ class TaskListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        sharedViewModel.add()
+
+
         recyclerView = binding.recyclerView
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = ToDoAdapter(this.requireContext(), data)
@@ -48,13 +51,9 @@ class TaskListFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.listTaskFragment = this@TaskListFragment
 
-
-
     }
-//fun deleteTask(){
-//    allTask.removeAt()
-//}
 
+// Add new Take to List
     fun addNewTask(){
     findNavController().navigate(R.id.action_taskListFragment_to_addTaskFragment)
     sharedViewModel.getEmptyFields()

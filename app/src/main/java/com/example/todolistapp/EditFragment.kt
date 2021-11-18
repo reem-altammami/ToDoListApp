@@ -52,13 +52,13 @@ class EditFragment : Fragment() {
         sharedViewModel.displayInformation()
 //        sharedViewModel.displayInformation(pos)
         showIfComplete()
-        showIsNotPast()
+        showIsPast()
 
 
 
     }
 
-    fun showIsNotPast() {
+    fun showIsPast() {
         sharedViewModel.isPast.observe(viewLifecycleOwner, {
 
             if (it) {
@@ -76,14 +76,14 @@ class EditFragment : Fragment() {
         })
     }
 
-
+// after user insert his change, this function will call to update values in dataSet
     fun updateTask() {
         sharedViewModel.updatedTaskInfo()
         findNavController().navigate(R.id.action_editFragment_to_taskListFragment)
 
     }
 
-
+    //Dialog to confirm delete task
     fun showConfirmDeletionDialog() {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(R.string.dialog_title))
@@ -97,13 +97,13 @@ class EditFragment : Fragment() {
             .show()
     }
 
-
+// after user click delete, the Task will delete from List then user navigate to TaskListFragment
     fun deleteTask() {
         sharedViewModel.removeTask()
         findNavController().navigate(R.id.action_editFragment_to_taskListFragment)
     }
 
-
+// show date Dialog to add due date for Task, this value is type of  Long so we send it to another function
     fun dateDialog() {
         val builder = MaterialDatePicker.Builder.datePicker()
         val picker = builder.build()

@@ -40,15 +40,16 @@ class AddTaskFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
            addTaskFragment = this@AddTaskFragment
         }
-
     }
 
+// add new Task to list
     fun saveNewTask() {
-
         sharedViewModel.addTaskToList()
         findNavController().navigate(R.id.action_addTaskFragment_to_taskListFragment)
 
     }
+
+    // show date Dialog to add due date for Task, this value is type of  Long so we send it to another function
     fun dateDialog(){
         val builder = MaterialDatePicker.Builder.datePicker()
         val picker = builder.build()

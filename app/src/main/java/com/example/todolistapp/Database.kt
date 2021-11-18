@@ -6,9 +6,9 @@ import model.ToDo
 }
 val allTask: MutableList<ToDo> =
     mutableListOf(
-        ToDo("Shopping","rrrrrrrrrrrrrrrrr","2021-7-5","",true,false),
-        ToDo("studying","aaaaaaaaaaaaaaaaaa","2021-4-15","",false,false),
-        ToDo("visit doctor","vvvvvvvvvvvvvvvvvvv","2021-12-25","",true,true)
+        ToDo("Shopping","rrrrrrrrrrrrrrrrr","2021-7-5","",true,true),
+        ToDo("studying","aaaaaaaaaaaaaaaaaa","2021-4-15","",false,true),
+        ToDo("visit doctor","vvvvvvvvvvvvvvvvvvv","2021-12-25","",true,false)
 
 
     )

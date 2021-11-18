@@ -20,7 +20,7 @@ class ShowTaskFragment : Fragment() {
     private val sharedViewModel: ToDoViewModel by activityViewModels()
     var taskIndex: Int = 0
 
-
+// receive Argument from from ListFragment based on index of task in DatasetList to access task details
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -47,24 +47,26 @@ class ShowTaskFragment : Fragment() {
         }
         sharedViewModel.currentTaskPosition.value = taskIndex
 
-
-        showIfCoplete()
-        showIsNotPast()
+        showIfComplete()
+        showIsPast()
         sharedViewModel.displayInformation()
     }
 
+
+// when user click on the EDIT ICON, navigate to edit fragment and call function to display his task details
     fun editTask() {
+
         findNavController().navigate(R.id.action_showTaskFragment_to_editFragment)
         sharedViewModel.displayInformation()
 
     }
-
+// delete task from List
     fun deleteTask() {
         sharedViewModel.removeTask()
         findNavController().navigate(R.id.action_showTaskFragment_to_taskListFragment)
     }
 
-    //Dialog
+    //Dialog to confirm delete task
     fun showConfirmDeletionDialog() {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(R.string.dialog_title))
@@ -77,16 +79,16 @@ class ShowTaskFragment : Fragment() {
             }
             .show()
     }
-
-    fun showIfCoplete() {
+// show tag if task completed
+    fun showIfComplete() {
         sharedViewModel.isComplete.observe(viewLifecycleOwner, {
             if (it) {
                 binding.iconDone.setImageResource(R.drawable.ic_check)
             }
         })
     }
-
-    fun showIsNotPast() {
+// show tag if task is past or coming
+    fun showIsPast() {
         sharedViewModel.isPast.observe(viewLifecycleOwner, {
 
             if (it) {
