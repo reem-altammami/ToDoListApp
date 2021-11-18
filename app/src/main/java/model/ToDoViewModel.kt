@@ -104,8 +104,14 @@ class ToDoViewModel : ViewModel() {
         _creationDate.value = formatter.format(calendar.time)
     }
 
+    fun formatDueDate(date: Long) {
+        val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val selectedDate = date
+        dueDate.value = formatter.format(selectedDate).toString()
 
-    // this function check if date of dask past or not based on current date
+    }
+
+    // this function check if date of task past or not based on current date
     fun isDatePast(taskDate: String) {
         try {
             val taskDueDate = SimpleDateFormat("yyyy-MM-dd").parse(taskDate)
@@ -115,5 +121,6 @@ class ToDoViewModel : ViewModel() {
             _isPast.value = false
         }
     }
+
 
 }

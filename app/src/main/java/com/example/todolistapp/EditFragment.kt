@@ -116,7 +116,7 @@ fun backWithOutUpdate(){
         picker.addOnNegativeButtonClickListener {
         }
         picker.addOnPositiveButtonClickListener {
-            sharedViewModel.formatDate(it)
+            sharedViewModel.formatDueDate(it)
         }
     }
 
