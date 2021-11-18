@@ -83,6 +83,10 @@ class EditFragment : Fragment() {
 
     }
 
+fun backWithOutUpdate(){
+    findNavController().navigate(R.id.action_editFragment_to_taskListFragment)
+}
+
     //Dialog to confirm delete task
     fun showConfirmDeletionDialog() {
         MaterialAlertDialogBuilder(requireContext())
