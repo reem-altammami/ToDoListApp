@@ -7,10 +7,11 @@
     android:layout_width="match_parent"
     android:layout_margin="8dp"
     android:padding="10dp"
+    app:cardCornerRadius="4dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:padding="10dp"
-        android:background="#F8EDEA"
+        android:background="@color/cardBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

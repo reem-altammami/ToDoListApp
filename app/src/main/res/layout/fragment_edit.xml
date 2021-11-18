@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:backgroundTint="#F8EDEA"
+                android:backgroundTint="@color/cardBackground"
                 app:cardCornerRadius="8dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,13 +39,11 @@
                         android:id="@+id/fieldTitle"
                         android:layout_width="250dp"
                         android:hint="@string/title"
-                        app:boxStrokeColor="@color/textBlack"
-                        android:textColor="@color/textBlack"
                         android:layout_height="wrap_content"
-                        app:helperTextTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginTop="10dp"
+                        style="@style/editBox">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/text_input_edit_title"
@@ -100,14 +98,12 @@
                         android:layout_width="0dp"
                         android:layout_height="200dp"
                         android:hint="@string/description"
-                        app:boxStrokeColor="@color/textBlack"
-                        android:textColor="@color/textBlack"
-                        app:helperTextTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                         app:layout_constraintTop_toBottomOf="@id/task_date"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         android:scrollbars="vertical"
-                        android:layout_marginTop="40dp">
+                        android:layout_marginTop="40dp"
+                        style="@style/editBox">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/text_input_edit_description"

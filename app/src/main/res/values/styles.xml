@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+<style name="editBox">
+<item name="boxStrokeColor">@color/textBlack</item>
+    <item name="android:textColorHint">@color/textBlack</item>
+    <item name="android:textColor">@color/textBlack</item>
+    <item name="helperTextTextAppearance">@style/TextAppearance.MaterialComponents.Subtitle1</item>
+</style>
 </resources>

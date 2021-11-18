@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_margin="16dp"
                 android:layout_height="500dp"
-                android:backgroundTint="#F8EDEA"
+                android:backgroundTint="@color/cardBackground"
                 app:cardCornerRadius="8dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
