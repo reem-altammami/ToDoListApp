@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">To Do List App</string>
+    <string name="app_name">To Do List</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="dialog_title">Delete Task</string>

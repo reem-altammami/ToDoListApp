@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">To Do List App</string>
+    <string name="app_name">قائمة المهام</string>
     <string name="dialog_title">حذف المهمة</string>
     <string name="dialog_message">هل أنت متأكد من رغبتك في حذف هذه المهمة؟</string>
     <string name="confirm">حذف</string>
