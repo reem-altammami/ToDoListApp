@@ -63,7 +63,7 @@
             app:destination="@id/taskListFragment"
             app:popUpTo="@id/taskListFragment" />
         <argument
-            android:name="itemPosition"
+            android:name="itemPos"
             app:argType="integer" />
     </fragment>
 </navigation>

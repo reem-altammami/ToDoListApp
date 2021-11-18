@@ -47,7 +47,7 @@ class EditFragment : Fragment() {
 
         var pos = 0
         arguments?.let {
-            pos = it?.getInt("itemPosition")
+            pos = it?.getInt("itemPos")
         }
         sharedViewModel.displayInformation()
 //        sharedViewModel.displayInformation(pos)

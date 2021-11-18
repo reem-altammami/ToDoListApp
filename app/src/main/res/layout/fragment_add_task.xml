@@ -69,6 +69,7 @@
                         app:layout_constraintBottom_toBottomOf="@id/calender"
                         app:layout_constraintStart_toEndOf="@id/calender"
                         android:layout_marginTop="10dp"
+                        android:onClick="@{()-> addTaskFragment.dateDialog()}"
                         android:textColor="@color/textBlack"
                         android:layout_marginStart="5dp"
                         android:text="@{@string/due_date(viewModel.dueDate)}"
