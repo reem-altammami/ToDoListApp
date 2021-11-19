@@ -46,27 +46,49 @@
                     app:srcCompat="@drawable/todo"
                     android:scaleType="centerCrop" />
 
-                <Button
-                    android:id="@+id/sort_button"
-                    android:text="Sort By"
-                    android:drawableEnd="@drawable/ic_arrow_drop_down"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginBottom="-5dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <ImageView
-                    android:layout_marginTop="190dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                <com.google.android.material.chip.Chip
                     android:id="@+id/add"
-                    android:clickable="true"
                     android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="5dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="6dp"
                     android:onClick="@{()-> listTaskFragment.addNewTask()}"
-                    app:srcCompat="@drawable/ic_baseline_add_circle_24" />
+                    app:chipIcon="@drawable/ic_add"
+                    app:chipIconTint="@color/secondBlack"
+                    app:chipIconSize="38dp"
+                    android:layout_marginBottom="-4dp"
+
+                    app:chipSurfaceColor="#5C75A177"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <com.google.android.material.chip.ChipGroup
+                    app:singleLine="true"
+                    android:layout_marginBottom="-5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/filter_icon"
+                        android:layout_width="80dp"
+                        android:layout_height="50dp"
+                        android:text="Filter"
+                        app:chipSurfaceColor="#5C75A177"
+                        app:chipIcon="@drawable/ic_filter" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/sort_icon"
+                        android:layout_width="80dp"
+                        android:layout_height="50dp"
+                        android:text="Sort"
+                        android:layout_marginEnd="5dp"
+                        app:chipSurfaceColor="#5C75A177"
+                        app:chipIcon="@drawable/ic_sort" />
+                </com.google.android.material.chip.ChipGroup>
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
