@@ -23,6 +23,9 @@
         <action
             android:id="@+id/action_taskListFragment_to_showTaskFragment3"
             app:destination="@id/showTaskFragment" />
+        <action
+            android:id="@+id/action_taskListFragment_self"
+            app:destination="@id/taskListFragment" />
     </fragment>
     <fragment
         android:id="@+id/showTaskFragment"

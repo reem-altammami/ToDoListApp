@@ -18,4 +18,9 @@
     <string name="my_task">مهامي</string>
     <string name="task_details">تفاصيل المهمة</string>
     <string name="edit_task">تعديل المهمة</string>
+    <string name="don">مكتملة</string>
+    <string name="alpha">A-Z</string>
+    <string name="reset">مسح</string>
+    <string name="creation_date_menu">تاريخ الإنشاء</string>
+    <string name="due_date_menu">تاريخ التنفيذ</string>
 </resources>

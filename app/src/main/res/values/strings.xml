@@ -20,5 +20,11 @@
     <string name="my_task">My Tasks</string>
     <string name="task_details">Task Details</string>
     <string name="edit_task">Edit Task</string>
+    <string name="don">Don</string>
+    <string name="alpha">A-Z</string>
+    <string name="reset">Reset</string>
+    <string name="creation_date_menu">Cration Date</string>
+    <string name="due_date_menu">Due Date</string>
+
 
 </resources>

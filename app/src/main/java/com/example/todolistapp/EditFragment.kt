@@ -51,11 +51,9 @@ class EditFragment : Fragment() {
             pos = it?.getInt("itemPos")
         }
 
-//        sharedViewModel.displayInformation()
+        sharedViewModel.displayInformation()
 
-        Log.e("TAG", "pos ${pos}  currentTaskPosition= ${sharedViewModel.currentTaskPosition.value}")
-        sharedViewModel.displayInformation(pos)
-        Log.e("TAG", "pos ${pos}  currentTaskPosition= ${sharedViewModel.currentTaskPosition.value}")
+//        sharedViewModel.displayInformation(pos)
         showIfComplete()
         showIsPast()
 

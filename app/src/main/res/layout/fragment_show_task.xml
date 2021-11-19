@@ -108,7 +108,7 @@
                         android:id="@+id/edit_icon"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:onClick="@{()->showTaskFragment.editTask()}"
+                        android:onClick="@{()->showTaskFragment.goToEditTaskPage()}"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/ic_edit" />

@@ -16,9 +16,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolistapp.R
 import com.example.todolistapp.TaskListFragmentDirections
+import com.example.todolistapp.allTask
+import data.DataSource
 import model.ToDo
 
-class ToDoAdapter (val context: Context, val dataSet:List<ToDo>):RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>() {
+class ToDoAdapter (val context: Context,val dataSet:List<ToDo> ):RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>() {
 
     class ToDoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val toDoTitle : TextView = view.findViewById(R.id.task_title)
@@ -53,14 +55,12 @@ class ToDoAdapter (val context: Context, val dataSet:List<ToDo>):RecyclerView.Ad
 
         }
 
-        holder.edit.setOnClickListener {
-            val action = TaskListFragmentDirections.actionTaskListFragmentToEditFragment(position)
-            holder.edit.findNavController().navigate(action)
-        }
-//        holder.delete.setOnClickListener {
+//        holder.edit.setOnClickListener {
 //            val action = TaskListFragmentDirections.actionTaskListFragmentToEditFragment(position)
-//            holder.delete.findNavController().navigate(action)
+//            holder.edit.findNavController().navigate(action)
 //        }
+
+
     }
 
     override fun getItemCount(): Int = dataSet.size
