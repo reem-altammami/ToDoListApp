@@ -42,7 +42,7 @@ class TaskListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.myButton.setOnClickListener { showPopupMenu(binding.myButton) }
+        binding.sortButton.setOnClickListener { showPopupMenu(binding.sortButton) }
         sortedList = data
         binding.apply {
             binding.viewModel = sharedViewModel
@@ -75,35 +75,35 @@ class TaskListFragment : Fragment() {
                 R.id.sort_iscomplate -> {
                     sortedList = data.filter { it -> it.isComplete == true }
                     recyclerView.adapter = ToDoAdapter(this.requireContext(), sortedList)
-                    binding.myButton.text = getString(R.string.don)
+                    binding.sortButton.text = getString(R.string.don)
 
                 }
                 R.id.sort_isPast -> {
                     sortedList = data.filter { it -> it.isPast == false }
                     recyclerView.adapter = ToDoAdapter(this.requireContext(), sortedList)
-                    binding.myButton.text = getString(R.string.coming)
+                    binding.sortButton.text = getString(R.string.coming)
                 }
                 R.id.sort_alpha -> {
                     sortedList = data.sortedBy { it.title.toLowerCase() }
                     recyclerView.adapter = ToDoAdapter(this.requireContext(), sortedList)
-                    binding.myButton.text = getString(R.string.alpha)
+                    binding.sortButton.text = getString(R.string.alpha)
 
                 }
                 R.id.sort_due -> {
                     sortedList = data.sortedBy { SimpleDateFormat("yyyy-MM-dd").parse(it.dueDate) }
                     recyclerView.adapter = ToDoAdapter(this.requireContext(), sortedList)
-                    binding.myButton.text = getString(R.string.due_date_menu)
+                    binding.sortButton.text = getString(R.string.due_date_menu)
                 }
                 R.id.sort_cration -> {
                     sortedList =
                         data.sortedBy { SimpleDateFormat("yyyy-MM-dd").parse(it.creationDate!!) }
                     recyclerView.adapter = ToDoAdapter(this.requireContext(), sortedList)
-                    binding.myButton.text = getString(R.string.creation_date_menu)
+                    binding.sortButton.text = getString(R.string.creation_date_menu)
                 }
                 R.id.un_sorted -> {
                     sortedList = data
                     recyclerView.adapter = ToDoAdapter(this.requireContext(), sortedList)
-                    binding.myButton.text = getString(R.string.reset)
+                    binding.sortButton.text = getString(R.string.reset)
                 }
 
             }
