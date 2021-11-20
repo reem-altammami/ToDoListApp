@@ -23,7 +23,7 @@ class EditFragment : Fragment() {
     private var _binding: FragmentEditBinding? = null
     private val binding get() = _binding!!
     private val sharedViewModel: ToDoViewModel by activityViewModels()
-    var pos:Int=1
+    var pos: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,9 +58,9 @@ class EditFragment : Fragment() {
         showIsPast()
 
 
-
     }
-// if date of task past change text
+
+    // if date of task past change text
     fun showIsPast() {
         sharedViewModel.isPast.observe(viewLifecycleOwner, {
 
@@ -79,16 +79,16 @@ class EditFragment : Fragment() {
         })
     }
 
-// after user insert his change, this function will call to update values in dataSet
+    // after user insert his change, this function will call to update values in dataSet
     fun updateTask() {
         sharedViewModel.updatedTaskInfo()
         findNavController().navigate(R.id.action_editFragment_to_taskListFragment)
 
     }
 
-fun backWithOutUpdate(){
-    findNavController().navigate(R.id.action_editFragment_to_taskListFragment)
-}
+    fun backWithOutUpdate() {
+        findNavController().navigate(R.id.action_editFragment_to_taskListFragment)
+    }
 
     //Dialog to confirm delete task
     fun showConfirmDeletionDialog() {
@@ -104,13 +104,13 @@ fun backWithOutUpdate(){
             .show()
     }
 
-// after user click delete, the Task will delete from List then user navigate to TaskListFragment
+    // after user click delete, the Task will delete from List then user navigate to TaskListFragment
     fun deleteTask() {
         sharedViewModel.removeTask()
         findNavController().navigate(R.id.action_editFragment_to_taskListFragment)
     }
 
-// show date Dialog to add due date for Task, this value is type of  Long so we send it to another function
+    // show date Dialog to add due date for Task, this value is type of  Long so we send it to another function
     fun dateDialog() {
         val builder = MaterialDatePicker.Builder.datePicker()
         val picker = builder.build()

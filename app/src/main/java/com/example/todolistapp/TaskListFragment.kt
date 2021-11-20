@@ -60,13 +60,13 @@ class TaskListFragment : Fragment() {
 
     }
 
-    // Add new Take to List
+    // Add new Task to List
     fun addNewTask() {
         findNavController().navigate(R.id.action_taskListFragment_to_addTaskFragment)
         sharedViewModel.getEmptyFields()
     }
 
-
+    // create popupMenu for Sort
     @SuppressLint("SetTextI18n")
     private fun showSortPopupMenu(view: View) {
         val popup = PopupMenu(this.requireContext(), view)
@@ -86,7 +86,8 @@ class TaskListFragment : Fragment() {
                     recyclerView.adapter = ToDoAdapter(this.requireContext(), sortedList)
                 }
                 R.id.sort_cration -> {
-                    sortedList = data.sortedBy { SimpleDateFormat("yyyy-MM-dd").parse(it.creationDate!!) }
+                    sortedList =
+                        data.sortedBy { SimpleDateFormat("yyyy-MM-dd").parse(it.creationDate!!) }
                     recyclerView.adapter = ToDoAdapter(this.requireContext(), sortedList)
                 }
                 R.id.un_sorted -> {
@@ -101,6 +102,7 @@ class TaskListFragment : Fragment() {
 
         popup.show()
     }
+// create popupMenu for Filter
 
     private fun showFilterPopupMenu(view: View) {
         val popup = PopupMenu(this.requireContext(), view)

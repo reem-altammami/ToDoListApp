@@ -38,11 +38,11 @@ class AddTaskFragment : Fragment() {
         binding?.apply {
             viewModel = sharedViewModel
             lifecycleOwner = viewLifecycleOwner
-           addTaskFragment = this@AddTaskFragment
+            addTaskFragment = this@AddTaskFragment
         }
     }
 
-// add new Task to list
+    // add new Task to list
     fun saveNewTask() {
         sharedViewModel.addTaskToList()
         findNavController().navigate(R.id.action_addTaskFragment_to_taskListFragment)
@@ -50,7 +50,7 @@ class AddTaskFragment : Fragment() {
     }
 
     // show date Dialog to add due date for Task, this value is type of  Long so we send it to another function
-    fun dateDialog(){
+    fun dateDialog() {
         val builder = MaterialDatePicker.Builder.datePicker()
         val picker = builder.build()
         picker.show(requireFragmentManager(), picker.toString())

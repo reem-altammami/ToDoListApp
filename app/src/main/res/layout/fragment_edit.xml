@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="model.ToDoViewModel" />
+
         <variable
             name="editFragment"
             type="com.example.todolistapp.EditFragment" />
     </data>
 
     <ScrollView
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_height="match_parent"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             tools:context=".EditFragment">
 
             <androidx.cardview.widget.CardView
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:backgroundTint="@color/cardBackground"
-                app:cardCornerRadius="8dp">
+                app:cardCornerRadius="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -37,31 +39,32 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/fieldTitle"
+                        style="@style/editBox"
                         android:layout_width="250dp"
-                        android:hint="@string/title"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
                         android:layout_marginTop="10dp"
-                        style="@style/editBox">
+                        android:hint="@string/title"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/text_input_edit_title"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:inputType="text"
-                            android:textColor="@color/textBlack"
                             android:text="@={viewModel.title}"
-                            />
+                            android:textColor="@color/textBlack" />
                     </com.google.android.material.textfield.TextInputLayout>
+
                     <ImageView
                         android:id="@+id/icon_done"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="15dp"
                         app:layout_constraintBottom_toBottomOf="@id/fieldTitle"
-                        app:layout_constraintTop_toTopOf="@id/fieldTitle"
-                        app:layout_constraintStart_toEndOf="@id/fieldTitle" />
+                        app:layout_constraintStart_toEndOf="@id/fieldTitle"
+                        app:layout_constraintTop_toTopOf="@id/fieldTitle" />
+
                     <ImageView
                         android:id="@+id/calender"
                         android:layout_width="25dp"
@@ -71,87 +74,92 @@
                         app:layout_constraintStart_toStartOf="@id/fieldTitle"
                         app:layout_constraintTop_toBottomOf="@id/fieldTitle"
                         app:srcCompat="@drawable/ic_calendar" />
+
                     <TextView
                         android:id="@+id/task_date"
-                        app:layout_constraintTop_toTopOf="@id/calender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
+                        android:onClick="@{()-> editFragment.dateDialog()}"
+                        android:text="@{@string/due_date(viewModel.dueDate)}"
+                        android:textColor="@color/textBlack"
                         app:layout_constraintBottom_toBottomOf="@id/calender"
                         app:layout_constraintStart_toEndOf="@id/calender"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="5dp"
-                        android:onClick="@{()-> editFragment.dateDialog()}"
-                        android:textColor="@color/textBlack"
-                        android:text="@{@string/due_date(viewModel.dueDate)}"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        app:layout_constraintTop_toTopOf="@id/calender" />
+
                     <TextView
                         android:id="@+id/past_coming"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
                         android:text="@string/coming"
                         android:textColor="#0C75A5"
-                        android:layout_marginStart="25dp"
+                        app:layout_constraintBottom_toBottomOf="@id/task_date"
                         app:layout_constraintStart_toEndOf="@id/task_date"
-                        app:layout_constraintTop_toTopOf="@id/task_date"
-                        app:layout_constraintBottom_toBottomOf="@id/task_date"/>
+                        app:layout_constraintTop_toTopOf="@id/task_date" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/fieldDescription"
+                        style="@style/editBox"
                         android:layout_width="0dp"
                         android:layout_height="200dp"
+                        android:layout_marginTop="40dp"
                         android:hint="@string/description"
-                        app:layout_constraintTop_toBottomOf="@id/task_date"
+                        android:scrollbars="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:scrollbars="vertical"
-                        android:layout_marginTop="40dp"
-                        style="@style/editBox">
+                        app:layout_constraintTop_toBottomOf="@id/task_date">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/text_input_edit_description"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColor="@color/textBlack"
                             android:inputType="textMultiLine"
+                            android:maxLines="8"
                             android:text="@={viewModel.description}"
-                            android:maxLines="8" />
+                            android:textColor="@color/textBlack" />
                     </com.google.android.material.textfield.TextInputLayout>
+
                     <CheckBox
                         android:id="@+id/complete"
-                        android:text="@string/task_is_done"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:textColor="@color/textBlack"
-                        android:textSize="18dp"
-                        android:checked="@={viewModel.isComplete}"
-                        android:textAlignment="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/fieldDescription"
-                        android:layout_marginBottom="30dp" />
+                        android:layout_marginBottom="30dp"
+                        android:checked="@={viewModel.isComplete}"
+                        android:text="@string/task_is_done"
+                        android:textAlignment="center"
+                        android:textColor="@color/textBlack"
+                        android:textSize="18dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/fieldDescription" />
+
                     <Button
                         android:id="@+id/edit_button"
-                        android:text="@string/edit"
-                        app:layout_constraintStart_toEndOf="@id/cancel_button"
-                        app:layout_constraintTop_toBottomOf="@id/fieldDescription"
-                        app:layout_constraintBottom_toTopOf="@id/creation_date"
                         android:layout_width="160dp"
-                        android:textAlignment="center"
-                        android:layout_marginStart="8dp"
-                        android:onClick="@{()->editFragment.updateTask() }"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="60dp" />
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="60dp"
+                        android:onClick="@{()->editFragment.updateTask() }"
+                        android:text="@string/edit"
+                        android:textAlignment="center"
+                        app:layout_constraintBottom_toTopOf="@id/creation_date"
+                        app:layout_constraintStart_toEndOf="@id/cancel_button"
+                        app:layout_constraintTop_toBottomOf="@id/fieldDescription" />
+
                     <Button
                         android:id="@+id/cancel_button"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="60dp"
+                        android:onClick="@{()->editFragment.backWithOutUpdate() }"
                         android:text="@string/cancel"
                         android:textAlignment="center"
+                        app:layout_constraintBottom_toTopOf="@id/creation_date"
                         app:layout_constraintStart_toEndOf="@id/edit_button"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/fieldDescription"
-                        app:layout_constraintBottom_toTopOf="@id/creation_date"
-                        android:layout_marginStart="10dp"
-                        android:layout_width="160dp"
-                        android:onClick="@{()->editFragment.backWithOutUpdate() }"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="60dp" />
+                        app:layout_constraintTop_toBottomOf="@id/fieldDescription" />
 
                     <ImageView
                         android:id="@+id/delete_icon"
@@ -166,8 +174,8 @@
                         android:id="@+id/creation_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/textBlack"
                         android:text="@{@string/creation_date(viewModel.creationDate)}"
+                        android:textColor="@color/textBlack"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />
 

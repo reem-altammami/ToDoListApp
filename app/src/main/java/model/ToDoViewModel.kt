@@ -33,7 +33,7 @@ class ToDoViewModel : ViewModel() {
 
     val isComplete = MutableLiveData<Boolean>()
 
-// this function will calling from AddTaskFragment to add new Task to List
+    // this function will calling from AddTaskFragment to add new Task to List
     fun addTaskToList() {
         isDatePast(dueDate.value!!)
         var info = ToDo(
@@ -46,7 +46,8 @@ class ToDoViewModel : ViewModel() {
         )
         allTask.add(info)
     }
-// this function calling to get empty fields for adding new Task
+
+    // this function calling to get empty fields for adding new Task
     fun getEmptyFields() {
         title.value = ""
         description.value = ""
@@ -56,7 +57,7 @@ class ToDoViewModel : ViewModel() {
         _isPast.value = false
     }
 
-// this function calling to show details for specific Task based on the index in List
+    // this function calling to show details for specific Task based on the index in List
     fun displayInformation() {
 
         val item = allTask[_currentTaskPosition.value!!]
@@ -67,7 +68,8 @@ class ToDoViewModel : ViewModel() {
         isComplete.value = item.isComplete
         isDatePast(item.dueDate)
     }
-    fun displayInformation(pos:Int) {
+
+    fun displayInformation(pos: Int) {
 
         val item = allTask[pos]
         title.value = item.title
@@ -78,13 +80,13 @@ class ToDoViewModel : ViewModel() {
         isDatePast(item.dueDate)
     }
 
-// remove task based on specific index
+    // remove task based on specific index
     fun removeTask() {
         allTask.removeAt(_currentTaskPosition.value!!)
 
     }
 
-// update the task details in list
+    // update the task details in list
     fun updatedTaskInfo() {
         isDatePast(dueDate.value!!)
         var info = ToDo(
@@ -98,7 +100,7 @@ class ToDoViewModel : ViewModel() {
         allTask[_currentTaskPosition.value!!] = info
     }
 
-// this function take date with type of long then convert it to String based date pattern
+    // this function take date with type of long then convert it to String based date pattern
     fun formatDate(date: Long) {
         val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val selectedDate = date
@@ -116,16 +118,10 @@ class ToDoViewModel : ViewModel() {
 
     // this function check if date of task past or not based on current date
     fun isDatePast(taskDate: String) {
-        try {
-            val taskDueDate = SimpleDateFormat("yyyy-MM-dd").parse(taskDate)
 
-            _isPast.value = (taskDueDate.before(Date()))
-        } catch (ignored: java.text.ParseException) {
-            _isPast.value = false
-        }
+        val taskDueDate = SimpleDateFormat("yyyy-MM-dd").parse(taskDate)
+        _isPast.value = taskDueDate.before(Date())
+
     }
-
-
-
 
 }
